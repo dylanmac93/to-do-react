@@ -1,3 +1,29 @@
 .TaskItem {
-    flex: 1;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  box-shadow: 2px 2px 5px grey;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 3px;
+  justify-content: space-between;
+}
+
+.delete-button {
+  flex: 0.1;
+  color: cadetblue;
+  font-size: 12px;
+  text-align: center;
+}
+
+.task-text {
+  flex: 0.7;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.done-button {
+  flex: 0.1;
 }

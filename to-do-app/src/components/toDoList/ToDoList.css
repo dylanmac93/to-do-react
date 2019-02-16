@@ -1,3 +1,10 @@
 .ToDoList {
-    flex: 1;
+  flex: 1;
+}
+
+.task-item-div {
+  display: flex;
+  height: 40px;
+  width: 400px;
+  margin-top: 10px;
 }

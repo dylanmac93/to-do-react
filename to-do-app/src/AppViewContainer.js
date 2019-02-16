@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addTask } from "./redux/reducer";
+import { addTask, deleteTask } from "./redux/reducer";
 import AppView from "./AppView";
 
 export default connect(
@@ -7,6 +7,7 @@ export default connect(
     tasks: state.appState.tasks
   }),
   dispatch => ({
-    addTask: text => dispatch(addTask(text))
+    addTask: text => dispatch(addTask(text)),
+    deleteTask: index => dispatch(deleteTask(index))
   })
 )(AppView);

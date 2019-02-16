@@ -2,11 +2,13 @@ import React from "react";
 import "./ToDoList.css";
 import TaskItem from "../taskItem/TaskItem";
 
-const ToDoList = ({ tasks }) => {
+const ToDoList = ({ tasks, deleteTask }) => {
   const renderTaskItems = () => {
-    if (tasks) {
+    if (tasks.length > 0) {
       return tasks.map((task, index) => (
-        <TaskItem task={task} index={index} key={index} />
+        <div className="task-item-div" key={index}>
+          <TaskItem task={task} deleteTask={deleteTask} index={index} />
+        </div>
       ));
     }
   };

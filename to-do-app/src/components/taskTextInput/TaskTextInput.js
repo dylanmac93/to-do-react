@@ -43,7 +43,7 @@ export default class TaskTextInput extends React.PureComponent {
           value={text}
         />
         <button className="button" onClick={this.handleClick}>
-          Add
+          +
         </button>
       </div>
     );
