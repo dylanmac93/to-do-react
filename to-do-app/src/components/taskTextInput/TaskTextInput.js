@@ -16,24 +16,19 @@ export default class TaskTextInput extends React.PureComponent {
     const { text } = this.state;
     const { addTask } = this.props;
 
+    // check if text is just spaces
     if (text.replace(/\s/g, "").length) {
       addTask(text);
     }
 
+    // clear text input
     this.setState({ text: "" });
     this.string = "";
   };
 
-  updateText = text => {
-    const { data } = text.nativeEvent;
-
-    if (!data) {
-      this.string = this.string.substring(0, this.string.length - 1);
-    } else {
-      this.string += data;
-    }
-
-    this.setState({ text: this.string });
+  updateText = event => {
+    const { value } = event.target;
+    this.setState({ text: value });
   };
 
   render() {
@@ -44,7 +39,7 @@ export default class TaskTextInput extends React.PureComponent {
           type="text"
           placeholder="Add a task..."
           className="input"
-          onChange={text => this.updateText(text)}
+          onChange={this.updateText}
           value={text}
         />
         <button className="button" onClick={this.handleClick}>

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import TaskTextInput from "./components/TaskTextInput";
+import Header from "./components/header/Header";
+import TaskTextInput from "./components/taskTextInput/TaskTextInput";
+import ToDoList from "./components/toDoList/ToDoList";
 
 class AppView extends Component {
   render() {
-    const { addTask } = this.props;
+    const { addTask, tasks } = this.props;
 
     return (
       <div>
@@ -16,6 +17,9 @@ class AppView extends Component {
           <div className="app-container">
             <div className="task-text-input-div">
               <TaskTextInput addTask={addTask} />
+            </div>
+            <div className="to-do-list-div">
+              <ToDoList tasks={tasks} />
             </div>
           </div>
         </div>
