@@ -1,0 +1,15 @@
+.TaskTextInput {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input {
+    flex: 0.9;
+    font-size: calc(10px + 1vmin);
+}
+
+.button {
+    flex: 0.08;
+    font-size: calc(6px + 1vmin);
+}
