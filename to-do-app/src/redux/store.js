@@ -1,4 +1,4 @@
-import { createStore, compose, applyMiddleware } from "redux";
+import { createStore, compose, applyMiddleware, combineReducers } from "redux";
 import * as storage from "redux-storage";
 import filter from "redux-storage-decorator-filter";
 import migrate from "redux-storage-decorator-migrate";
@@ -15,8 +15,12 @@ const filterMiddleware = storage.createMiddleware(engine, [], eventFilters);
 
 const enhancer = compose(applyMiddleware(logger, filterMiddleware));
 
+const rootReducer = combineReducers({
+  appState: reducer
+});
+
 const store = createStore(
-  storage.reducer(reducer),
+  storage.reducer(rootReducer),
   { appState: undefined },
   enhancer
 );
