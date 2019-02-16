@@ -1,0 +1,13 @@
+.Header {
+    display: flex;
+    height: calc(40px + 4vmin);
+    background-color: cadetblue;
+    width: '100%';
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container {
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
