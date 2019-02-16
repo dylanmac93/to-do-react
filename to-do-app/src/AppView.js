@@ -5,6 +5,8 @@ import TaskTextInput from "./components/TaskTextInput";
 
 class AppView extends Component {
   render() {
+    const { addTask } = this.props;
+
     return (
       <div>
         <div className="header-div">
@@ -13,7 +15,7 @@ class AppView extends Component {
         <div className="App">
           <div className="app-container">
             <div className="task-text-input-div">
-              <TaskTextInput />
+              <TaskTextInput addTask={addTask} />
             </div>
           </div>
         </div>
