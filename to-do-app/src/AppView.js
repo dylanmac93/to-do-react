@@ -6,7 +6,7 @@ import ToDoList from "./components/toDoList/ToDoList";
 
 class AppView extends Component {
   render() {
-    const { addTask, tasks, deleteTask, markAsDone } = this.props;
+    const { addTask, tasks, deleteTask, markAsDone, editTask } = this.props;
 
     return (
       <div>
@@ -23,6 +23,7 @@ class AppView extends Component {
                 tasks={tasks}
                 deleteTask={deleteTask}
                 markAsDone={markAsDone}
+                editTask={editTask}
               />
             </div>
           </div>

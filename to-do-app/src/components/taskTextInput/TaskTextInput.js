@@ -12,7 +12,7 @@ export default class TaskTextInput extends React.PureComponent {
     this.string = "";
   }
 
-  handleClick = () => {
+  createTask = () => {
     const { text } = this.state;
     const { addTask } = this.props;
 
@@ -42,7 +42,7 @@ export default class TaskTextInput extends React.PureComponent {
           onChange={this.updateText}
           value={text}
         />
-        <button className="button" onClick={this.handleClick}>
+        <button className="button" onClick={this.createTask}>
           +
         </button>
       </div>

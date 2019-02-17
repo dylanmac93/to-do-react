@@ -2,7 +2,7 @@ import React from "react";
 import "./ToDoList.css";
 import TaskItem from "../taskItem/TaskItem";
 
-const ToDoList = ({ tasks, deleteTask, markAsDone }) => {
+const ToDoList = ({ tasks, deleteTask, markAsDone, editTask }) => {
   const renderTaskItems = () => {
     if (tasks && tasks.length > 0) {
       return tasks.map((task, index) => (
@@ -12,6 +12,7 @@ const ToDoList = ({ tasks, deleteTask, markAsDone }) => {
             deleteTask={deleteTask}
             markAsDone={markAsDone}
             index={index}
+            editTask={editTask}
           />
         </div>
       ));

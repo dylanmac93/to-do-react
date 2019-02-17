@@ -1,4 +1,4 @@
-import { ADD_TASK, MARK_AS_DONE_TOGGLE } from "./reducer";
+import { ADD_TASK, MARK_AS_DONE_TOGGLE, EDIT_TASK } from "./reducer";
 
 const appMiddleware = ({ dispatch, getState }) => next => action => {
   switch (action.type) {
@@ -8,9 +8,9 @@ const appMiddleware = ({ dispatch, getState }) => next => action => {
         text,
         done: false
       };
-
       const payload = { task };
       const updatedAction = { ...action, payload };
+
       next(updatedAction);
       break;
     }
@@ -25,6 +25,19 @@ const appMiddleware = ({ dispatch, getState }) => next => action => {
           } else {
             tasks[x].done = false;
           }
+        }
+      }
+
+      next(action);
+      break;
+    }
+    case EDIT_TASK: {
+      const { index, text } = action.payload;
+      const { tasks } = getState().appState;
+
+      for (let x = 0; x < tasks.length; x++) {
+        if (x === index) {
+          tasks[x].text = text;
         }
       }
 
