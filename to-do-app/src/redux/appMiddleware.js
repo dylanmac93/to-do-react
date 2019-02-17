@@ -1,4 +1,9 @@
-import { ADD_TASK, MARK_AS_DONE_TOGGLE, EDIT_TASK } from "./reducer";
+import {
+  ADD_TASK,
+  MARK_AS_DONE_TOGGLE,
+  EDIT_TASK,
+  DELETE_TASK
+} from "./reducer";
 
 const appMiddleware = ({ dispatch, getState }) => next => action => {
   switch (action.type) {
@@ -8,9 +13,13 @@ const appMiddleware = ({ dispatch, getState }) => next => action => {
         text,
         done: false
       };
-      const payload = { task };
-      const updatedAction = { ...action, payload };
+      const { tasks } = getState().appState;
+      const tasksArr = [...tasks];
 
+      tasksArr.push(task);
+
+      const payload = { tasksArr };
+      const updatedAction = { ...action, payload };
       next(updatedAction);
       break;
     }
@@ -27,7 +36,6 @@ const appMiddleware = ({ dispatch, getState }) => next => action => {
           }
         }
       }
-
       next(action);
       break;
     }
@@ -40,8 +48,19 @@ const appMiddleware = ({ dispatch, getState }) => next => action => {
           tasks[x].text = text;
         }
       }
-
       next(action);
+      break;
+    }
+    case DELETE_TASK: {
+      const { index } = action.payload;
+      const { tasks } = getState().appState;
+      const tasksArr = [...tasks];
+
+      tasksArr.splice(index, 1);
+
+      const payload = { tasksArr };
+      const updatedAction = { ...action, payload };
+      next(updatedAction);
       break;
     }
     default: {

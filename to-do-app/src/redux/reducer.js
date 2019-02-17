@@ -54,19 +54,14 @@ const reducer = (state = initialState, action) => {
       };
     }
     case ADD_TASK: {
-      const { task } = action.payload;
-      const tasksArr = [...state.tasks];
-      tasksArr.push(task);
-
+      const { tasksArr } = action.payload;
       return {
         ...state,
         tasks: tasksArr
       };
     }
     case DELETE_TASK: {
-      const { index } = action.payload;
-      const tasksArr = [...state.tasks];
-      tasksArr.splice(index, 1);
+      const { tasksArr } = action.payload;
       return {
         ...state,
         tasks: tasksArr

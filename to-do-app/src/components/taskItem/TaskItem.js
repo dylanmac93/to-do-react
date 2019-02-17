@@ -48,7 +48,9 @@ export default class TaskItem extends React.PureComponent {
   updateTask = () => {
     const { inputValue } = this.state;
     const { editTask, index } = this.props;
-    editTask(index, inputValue);
+    if (inputValue.replace(/\s/g, "").length) {
+      editTask(index, inputValue);
+    }
     this.setTaskInactive();
   };
 
