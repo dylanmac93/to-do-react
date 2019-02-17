@@ -18,6 +18,14 @@
   border: 0.5px solid lightgrey;
 }
 
+.done-div {
+  background: cadetblue;
+}
+
+.done-text {
+  color: white;
+}
+
 .task-item-button {
   display: flex;
   flex: 0.12;
@@ -25,10 +33,11 @@
 
 .task-text-div {
   display: flex;
-  flex: 0.66;
+  flex: 0.88;
   overflow: hidden;
   align-items: center;
   justify-content: flex-start;
+  cursor: text;
 }
 
 .task-text {
@@ -37,13 +46,14 @@
   overflow: hidden;
   font-size: calc(10px + 1vmin);
   color: grey;
+  padding-left: 10px;
 }
 .task-item-input {
   flex: 0.88;
   border: none;
-  font-size: calc(9px + 1vmin);
+  font-size: calc(10px + 1vmin);
   padding-left: 10px;
   outline: none;
-  margin-bottom: 2px;
-  margin-left: 2px;
+  margin-bottom: 1px;
+  margin-left: 1px;
 }

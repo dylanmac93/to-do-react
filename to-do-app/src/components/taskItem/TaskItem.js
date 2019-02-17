@@ -22,11 +22,6 @@ export default class TaskItem extends React.PureComponent {
     document.removeEventListener("click", this.handleClickOutside, true);
   };
 
-  removeTask = () => {
-    const { deleteTask, index } = this.props;
-    deleteTask(index);
-  };
-
   markTaskAsDone = () => {
     const { markAsDone, index } = this.props;
     markAsDone(index);
@@ -62,7 +57,9 @@ export default class TaskItem extends React.PureComponent {
   };
 
   render() {
-    const { task } = this.props;
+    const {
+      task: { text, done }
+    } = this.props;
     const { active, inputValue } = this.state;
 
     if (active) {
@@ -78,9 +75,10 @@ export default class TaskItem extends React.PureComponent {
           <span className="task-item-button" onClick={this.updateTask}>
             <TaskItemButton
               text={"Edit"}
+              setFontSize={11}
               textColor={"cadetblue"}
               onClickButton={this.editTask}
-              justifyText={"flex-end"}
+              justifyText={"center"}
             />
           </span>
         </div>
@@ -89,24 +87,22 @@ export default class TaskItem extends React.PureComponent {
 
     // inactive task item
     return (
-      <div className="TaskItem">
-        <span className="task-item-button">
-          <TaskItemButton
-            text={"Remove"}
-            textColor={"red"}
-            onClickButton={this.removeTask}
-            justifyText={"flex-start"}
-          />
-        </span>
+      <div
+        className="TaskItem"
+        style={done ? { background: "cadetblue" } : null}
+      >
         <span className="task-text-div" onClick={this.setTaskActive}>
-          <div className="task-text">{task.text}</div>
+          <div className="task-text" style={done ? { color: "white" } : null}>
+            {text}
+          </div>
         </span>
         <span className="task-item-button">
           <TaskItemButton
-            text={"Done"}
-            textColor={"cadetblue"}
+            text={done ? "undo" : "✓"}
+            setFontSize={done ? 11 : 30}
+            textColor={done ? "white" : "cadetblue"}
             onClickButton={this.markTaskAsDone}
-            justifyText={"flex-end"}
+            justifyText={"center"}
           />
         </span>
       </div>

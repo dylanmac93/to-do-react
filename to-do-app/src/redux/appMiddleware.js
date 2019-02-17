@@ -27,28 +27,35 @@ const appMiddleware = ({ dispatch, getState }) => next => action => {
       const { index } = action.payload;
       const { tasks } = getState().appState;
 
-      for (let x = 0; x < tasks.length; x++) {
-        if (x === index) {
-          if (!tasks[x].done) {
-            tasks[x].done = true;
-          } else {
-            tasks[x].done = false;
+      const tasksArr = tasks.map((task, i) => {
+        if (i === index) {
+          if (!task.done) {
+            return { ...task, done: true };
           }
+          return { ...task, done: false };
         }
-      }
-      next(action);
+        return task;
+      });
+
+      const payload = { tasksArr };
+      const updatedAction = { ...action, payload };
+      next(updatedAction);
       break;
     }
     case EDIT_TASK: {
       const { index, text } = action.payload;
       const { tasks } = getState().appState;
 
-      for (let x = 0; x < tasks.length; x++) {
-        if (x === index) {
-          tasks[x].text = text;
+      const tasksArr = tasks.map((task, i) => {
+        if (i === index) {
+          return { ...task, text: text };
         }
-      }
-      next(action);
+        return task;
+      });
+
+      const payload = { tasksArr };
+      const updatedAction = { ...action, payload };
+      next(updatedAction);
       break;
     }
     case DELETE_TASK: {

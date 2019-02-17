@@ -75,13 +75,17 @@ const reducer = (state = initialState, action) => {
       };
     }
     case MARK_AS_DONE_TOGGLE: {
+      const { tasksArr } = action.payload;
       return {
-        ...state
+        ...state,
+        tasks: tasksArr
       };
     }
     case EDIT_TASK: {
+      const { tasksArr } = action.payload;
       return {
-        ...state
+        ...state,
+        tasks: tasksArr
       };
     }
     case CLEAR_ALL_TASKS: {
