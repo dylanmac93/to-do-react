@@ -1,7 +1,18 @@
 .ToDoList {
   flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .task-item-div {
-  margin-top: 10px;
+  display: flex;
+  margin: 10px 0 10px 0;
+  height: 40px;
+  width: 400px;
+}
+
+@media screen and (max-width: 500px) {
+  .task-item-div {
+    width: 90vw;
+  }
 }

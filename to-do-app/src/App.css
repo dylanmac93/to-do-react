@@ -25,10 +25,14 @@
   width: 400px;
   height: 40px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .to-do-list-div {
   flex: 1;
+  width: 100%;
+  overflow-x: scroll;
+  border-top: 2px solid cadetblue;
 }
 
 @media screen and (max-width: 500px) {
@@ -40,7 +44,7 @@
     height: unset;
   }
 
-  .task-text-input-div .task-item-div {
+  .task-text-input-div {
     width: 90vw;
   }
 }

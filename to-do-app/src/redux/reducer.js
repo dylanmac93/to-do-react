@@ -8,6 +8,7 @@ export const ADD_TASK = "ADD_TASK";
 export const DELETE_TASK = "DELETE_TASK";
 export const MARK_AS_DONE_TOGGLE = "MARK_AS_DONE_TOGGLE";
 export const EDIT_TASK = "EDIT_TASK";
+export const CLEAR_ALL_TASKS = "CLEAR_ALL_TASKS";
 
 export function addTask(text) {
   return {
@@ -46,6 +47,12 @@ export function editTask(index, text) {
   };
 }
 
+export function clearAllTasks() {
+  return {
+    type: CLEAR_ALL_TASKS
+  };
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case REDUX_STORAGE_LOAD: {
@@ -75,6 +82,12 @@ const reducer = (state = initialState, action) => {
     case EDIT_TASK: {
       return {
         ...state
+      };
+    }
+    case CLEAR_ALL_TASKS: {
+      return {
+        ...state,
+        tasks: []
       };
     }
     default:

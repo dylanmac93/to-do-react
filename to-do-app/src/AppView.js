@@ -6,12 +6,19 @@ import ToDoList from "./components/toDoList/ToDoList";
 
 class AppView extends Component {
   render() {
-    const { addTask, tasks, deleteTask, markAsDone, editTask } = this.props;
+    const {
+      addTask,
+      tasks,
+      deleteTask,
+      markAsDone,
+      editTask,
+      clearAllTasks
+    } = this.props;
 
     return (
       <div>
         <div className="header-div">
-          <Header />
+          <Header clearAllTasks={clearAllTasks} tasks={tasks} />
         </div>
         <div className="App">
           <div className="app-container">

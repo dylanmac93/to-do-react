@@ -1,7 +1,6 @@
 .TaskItem {
   display: flex;
-  height: 40px;
-  width: 400px;
+  flex: 1;
   box-shadow: 2px 2px 5px grey;
   align-items: center;
   cursor: pointer;
@@ -11,8 +10,7 @@
 
 .TaskItemActive {
   display: flex;
-  height: 40px;
-  width: 400px;
+  flex: 1;
   box-shadow: 2px 2px 5px grey;
   border-radius: 3px;
   justify-content: space-between;
@@ -31,7 +29,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: calc(8px + 1vmin);
+  font-size: calc(10px + 1vmin);
 }
 
 .done-button {
@@ -45,7 +43,7 @@
 .task-item-input {
   flex: 0.9;
   border: none;
-  font-size: calc(8px + 1vmin);
+  font-size: calc(10px + 1vmin);
   padding-left: 10px;
   outline: none;
 }
