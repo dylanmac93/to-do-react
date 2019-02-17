@@ -1,49 +1,49 @@
 .TaskItem {
   display: flex;
   flex: 1;
-  box-shadow: 2px 2px 5px grey;
-  align-items: center;
+  box-shadow: 2px 2px 5px lightgrey;
   cursor: pointer;
   border-radius: 3px;
   justify-content: space-between;
+  border: 0.5px solid lightgrey;
+  overflow: hidden;
 }
 
 .TaskItemActive {
   display: flex;
   flex: 1;
-  box-shadow: 2px 2px 5px grey;
+  box-shadow: 2px 2px 5px lightgrey;
   border-radius: 3px;
   justify-content: space-between;
+  border: 0.5px solid lightgrey;
 }
 
-.delete-button {
-  flex: 0.1;
-  color: cadetblue;
-  font-size: 12px;
-  text-align: center;
+.task-item-button {
+  display: flex;
+  flex: 0.12;
+}
+
+.task-text-div {
+  display: flex;
+  flex: 0.66;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .task-text {
-  flex: 0.7;
-  text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   font-size: calc(10px + 1vmin);
+  color: grey;
 }
-
-.done-button {
-  flex: 0.1;
-  text-align: center;
-  font-size: 12px;
-  color: cadetblue;
-  cursor: pointer;
-}
-
 .task-item-input {
-  flex: 0.9;
+  flex: 0.88;
   border: none;
-  font-size: calc(10px + 1vmin);
+  font-size: calc(9px + 1vmin);
   padding-left: 10px;
   outline: none;
+  margin-bottom: 2px;
+  margin-left: 2px;
 }

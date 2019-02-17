@@ -13,10 +13,11 @@
 
 .button {
   flex: 0.07;
-  font-size: calc(20px + 1vmin);
-  border-radius: 20px;
+  font-size: calc(6px + 1vmin);
+  border-radius: 3px;
   cursor: pointer;
   color: grey;
-  border-color: grey;
+  border-color: lightgrey;
   background: white;
+  outline: none;
 }

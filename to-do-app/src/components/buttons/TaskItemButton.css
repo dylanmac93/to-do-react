@@ -1,0 +1,8 @@
+.TaskItemButton {
+  display: flex;
+  flex: 1;
+  font-size: 11px;
+  padding: 0 2px 0 2px;
+  align-items: center;
+  cursor: pointer;
+}

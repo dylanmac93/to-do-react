@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./TaskItem.css";
+import TaskItemButton from "../buttons/TaskItemButton";
 
 export default class TaskItem extends React.PureComponent {
   constructor(props) {
@@ -74,8 +75,13 @@ export default class TaskItem extends React.PureComponent {
             value={inputValue}
             onChange={this.updateText}
           />
-          <span className="done-button" onClick={this.updateTask}>
-            Edit
+          <span className="task-item-button" onClick={this.updateTask}>
+            <TaskItemButton
+              text={"Edit"}
+              textColor={"cadetblue"}
+              onClickButton={this.editTask}
+              justifyText={"flex-end"}
+            />
           </span>
         </div>
       );
@@ -84,14 +90,24 @@ export default class TaskItem extends React.PureComponent {
     // inactive task item
     return (
       <div className="TaskItem">
-        <span className="delete-button" onClick={this.removeTask}>
-          Delete
+        <span className="task-item-button">
+          <TaskItemButton
+            text={"Remove"}
+            textColor={"red"}
+            onClickButton={this.removeTask}
+            justifyText={"flex-start"}
+          />
         </span>
-        <span className="task-text" onClick={this.setTaskActive}>
-          {task.text}
+        <span className="task-text-div" onClick={this.setTaskActive}>
+          <div className="task-text">{task.text}</div>
         </span>
-        <span className="done-button" onClick={this.markTaskAsDone}>
-          Done
+        <span className="task-item-button">
+          <TaskItemButton
+            text={"Done"}
+            textColor={"cadetblue"}
+            onClickButton={this.markTaskAsDone}
+            justifyText={"flex-end"}
+          />
         </span>
       </div>
     );
