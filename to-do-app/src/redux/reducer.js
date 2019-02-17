@@ -6,6 +6,7 @@ export const REDUX_STORAGE_LOAD = "REDUX_STORAGE_LOAD";
 
 export const ADD_TASK = "ADD_TASK";
 export const DELETE_TASK = "DELETE_TASK";
+export const MARK_AS_DONE_TOGGLE = "MARK_AS_DONE_TOGGLE";
 
 export function addTask(text) {
   return {
@@ -25,6 +26,15 @@ export function deleteTask(index) {
   };
 }
 
+export function markAsDone(index) {
+  return {
+    type: MARK_AS_DONE_TOGGLE,
+    payload: {
+      index
+    }
+  };
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case REDUX_STORAGE_LOAD: {
@@ -33,11 +43,18 @@ const reducer = (state = initialState, action) => {
       };
     }
     case ADD_TASK: {
-      const { text } = action.payload;
+      const { task } = action.payload;
+      const tasksArr = [...state.tasks];
+      tasksArr.push(task);
 
       return {
         ...state,
-        tasks: [...state.tasks, text]
+        tasks: tasksArr
+      };
+    }
+    case MARK_AS_DONE_TOGGLE: {
+      return {
+        ...state
       };
     }
     case DELETE_TASK: {

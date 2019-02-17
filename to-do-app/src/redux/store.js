@@ -6,14 +6,16 @@ import createEngine from "redux-storage-engine-localstorage";
 import reducer from "./reducer";
 import { stateFilters, eventFilters } from "./filters";
 import { createLogger } from "redux-logger";
+import appMiddleware from "./appMiddleware";
 
 const engine = filter(migrate(createEngine("engine-key"), 0), stateFilters);
 
 const logger = createLogger();
 
+// TODO
 const filterMiddleware = storage.createMiddleware(engine, [], eventFilters);
 
-const enhancer = compose(applyMiddleware(logger, filterMiddleware));
+const enhancer = compose(applyMiddleware(logger, appMiddleware));
 
 const rootReducer = combineReducers({
   appState: reducer
