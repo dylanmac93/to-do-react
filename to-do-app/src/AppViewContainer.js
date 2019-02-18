@@ -4,7 +4,8 @@ import {
   deleteTask,
   markAsDone,
   editTask,
-  clearAllTasks
+  clearAllTasks,
+  swapTasks
 } from "./redux/reducer";
 import AppView from "./AppView";
 
@@ -17,6 +18,7 @@ export default connect(
     deleteTask: index => dispatch(deleteTask(index)),
     markAsDone: index => dispatch(markAsDone(index)),
     editTask: (index, text) => dispatch(editTask(index, text)),
-    clearAllTasks: () => dispatch(clearAllTasks())
+    clearAllTasks: () => dispatch(clearAllTasks()),
+    swapTasks: tasksToSwap => dispatch(swapTasks(tasksToSwap))
   })
 )(AppView);

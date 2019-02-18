@@ -9,6 +9,7 @@ export const DELETE_TASK = "DELETE_TASK";
 export const MARK_AS_DONE_TOGGLE = "MARK_AS_DONE_TOGGLE";
 export const EDIT_TASK = "EDIT_TASK";
 export const CLEAR_ALL_TASKS = "CLEAR_ALL_TASKS";
+export const SWAP_TASKS = "SWAP_TASKS";
 
 export function addTask(text) {
   return {
@@ -53,6 +54,15 @@ export function clearAllTasks() {
   };
 }
 
+export function swapTasks(tasksToSwap) {
+  return {
+    type: SWAP_TASKS,
+    payload: {
+      tasksToSwap
+    }
+  };
+}
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case REDUX_STORAGE_LOAD: {
@@ -92,6 +102,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: []
+      };
+    }
+    case SWAP_TASKS: {
+      const { tasksArr } = action.payload;
+      return {
+        ...state,
+        tasks: tasksArr
       };
     }
     default:

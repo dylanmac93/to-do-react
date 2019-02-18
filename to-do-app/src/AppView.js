@@ -12,7 +12,8 @@ class AppView extends Component {
       deleteTask,
       markAsDone,
       editTask,
-      clearAllTasks
+      clearAllTasks,
+      swapTasks
     } = this.props;
 
     return (
@@ -32,6 +33,7 @@ class AppView extends Component {
                 markAsDone={markAsDone}
                 editTask={editTask}
                 clearAllTasks={clearAllTasks}
+                swapTasks={swapTasks}
               />
             </div>
           </div>

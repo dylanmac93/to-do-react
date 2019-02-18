@@ -3,7 +3,8 @@ import {
   DELETE_TASK,
   EDIT_TASK,
   MARK_AS_DONE_TOGGLE,
-  CLEAR_ALL_TASKS
+  CLEAR_ALL_TASKS,
+  SWAP_TASKS
 } from "./reducer";
 
 export const stateFilters = [["appState", "tasks"]];
@@ -12,5 +13,6 @@ export const eventFilters = [
   DELETE_TASK,
   EDIT_TASK,
   MARK_AS_DONE_TOGGLE,
-  CLEAR_ALL_TASKS
+  CLEAR_ALL_TASKS,
+  SWAP_TASKS
 ];

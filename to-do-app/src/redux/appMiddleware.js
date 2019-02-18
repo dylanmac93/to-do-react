@@ -2,7 +2,8 @@ import {
   ADD_TASK,
   MARK_AS_DONE_TOGGLE,
   EDIT_TASK,
-  DELETE_TASK
+  DELETE_TASK,
+  SWAP_TASKS
 } from "./reducer";
 
 const appMiddleware = ({ dispatch, getState }) => next => action => {
@@ -64,6 +65,20 @@ const appMiddleware = ({ dispatch, getState }) => next => action => {
       const tasksArr = [...tasks];
 
       tasksArr.splice(index, 1);
+
+      const payload = { tasksArr };
+      const updatedAction = { ...action, payload };
+      next(updatedAction);
+      break;
+    }
+    case SWAP_TASKS: {
+      const { tasksToSwap } = action.payload;
+      const { tasks } = getState().appState;
+      const tasksArr = [...tasks];
+
+      var t = tasksArr[tasksToSwap[0]];
+      tasksArr[tasksToSwap[0]] = tasksArr[tasksToSwap[1]];
+      tasksArr[tasksToSwap[1]] = t;
 
       const payload = { tasksArr };
       const updatedAction = { ...action, payload };
