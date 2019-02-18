@@ -56,12 +56,14 @@ export default class ToDoList extends React.PureComponent {
       return tasks.map((task, index) => (
         <div className="task-row">
           {tasks && tasks.length > 1 ? (
-            <SwapTaskButton
-              index={index}
-              active={activeTaskIcon === index}
-              handleTaskSwapClick={this.handleTaskSwapClick}
-              resetTasksToSwap={this.resetTasksToSwap}
-            />
+            <div className="task-swap-icon">
+              <SwapTaskButton
+                index={index}
+                active={activeTaskIcon === index}
+                handleTaskSwapClick={this.handleTaskSwapClick}
+                resetTasksToSwap={this.resetTasksToSwap}
+              />
+            </div>
           ) : null}
           <div className="task-item-div" key={index}>
             <TaskItem

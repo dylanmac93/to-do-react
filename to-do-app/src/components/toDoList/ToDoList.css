@@ -27,6 +27,8 @@
 
 .task-swap-icon {
   position: absolute;
+  display: flex;
+  width: 50px;
   height: 40px;
   color: grey;
   font-size: 20px;

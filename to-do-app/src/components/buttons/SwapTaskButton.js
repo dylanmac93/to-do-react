@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./TaskItemButton.css";
+import "./SwapTaskButton.css";
 
-export default class ToDoList extends React.PureComponent {
+export default class SwapTaskButton extends React.PureComponent {
   componentWillUnmount = () => {
     document.removeEventListener("click", this.handleClickOutside, true);
   };
@@ -17,7 +17,7 @@ export default class ToDoList extends React.PureComponent {
     const { resetTasksToSwap } = this.props;
     if (
       !ReactDOM.findDOMNode(this).contains(e.target) &&
-      e.target.className !== "task-swap-icon"
+      e.target.id !== "SwapTaskButton"
     ) {
       resetTasksToSwap();
     }
@@ -27,11 +27,25 @@ export default class ToDoList extends React.PureComponent {
     const { active } = this.props;
     return (
       <div
-        className="task-swap-icon"
+        className="SwapTaskButton"
+        id="SwapTaskButton"
         onClick={this.handleClick}
-        style={active ? { color: "red" } : null}
       >
-        swap
+        <div
+          id="SwapTaskButton"
+          style={
+            active
+              ? {
+                  background: "cadetblue",
+                  color: "white",
+                  padding: "5px",
+                  borderRadius: "3px"
+                }
+              : null
+          }
+        >
+          swap
+        </div>
       </div>
     );
   }
