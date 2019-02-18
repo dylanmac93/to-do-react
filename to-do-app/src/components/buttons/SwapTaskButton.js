@@ -38,13 +38,13 @@ export default class SwapTaskButton extends React.PureComponent {
               ? {
                   background: "cadetblue",
                   color: "white",
-                  padding: "5px",
+                  padding: "5",
                   borderRadius: "3px"
                 }
               : null
           }
         >
-          swap
+          ↓↑
         </div>
       </div>
     );

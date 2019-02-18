@@ -1,12 +1,18 @@
 .Header {
-    display: flex;
-    flex: 1;
-    background-color: cadetblue;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex: 1;
+  background-color: cadetblue;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-container {
-    font-size: calc(10px + 2vmin);
-    color: white;
+  font-size: 25px;
+  color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .header-container {
+    font-size: calc(14px + 2vw);
+  }
 }

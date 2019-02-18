@@ -106,7 +106,7 @@ export default class TaskItem extends React.PureComponent {
         <span className="task-item-button" onClick={this.removeTask}>
           <TaskItemButton
             text={"X"}
-            setFontSize={20}
+            setFontSize={18}
             textColor={"#de3131"}
             onClickButton={this.editTask}
             justifyText={"center"}
@@ -120,7 +120,7 @@ export default class TaskItem extends React.PureComponent {
         <span className="task-item-button">
           <TaskItemButton
             text={done ? "undo" : "✓"}
-            setFontSize={done ? 11 : 30}
+            setFontSize={done ? 11 : 25}
             textColor={done ? "white" : "cadetblue"}
             onClickButton={this.markTaskAsDone}
             justifyText={"center"}

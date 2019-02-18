@@ -17,7 +17,7 @@
 
 .header-div {
   display: flex;
-  height: calc(40px + 4vmin);
+  height: 70px;
 }
 
 .task-text-input-div {
@@ -46,5 +46,9 @@
 
   .task-text-input-div {
     width: 90vw;
+  }
+
+  .header-div {
+    height: calc(40px + 4vw);
   }
 }

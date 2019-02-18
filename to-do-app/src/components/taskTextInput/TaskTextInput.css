@@ -6,14 +6,14 @@
 
 .input {
   flex: 0.9;
-  font-size: calc(10px + 1vmin);
+  font-size: 18px;
   padding-left: 10px;
   outline: none;
 }
 
 .button {
   flex: 0.07;
-  font-size: calc(6px + 1vmin);
+  font-size: 12px;
   border-radius: 3px;
   cursor: pointer;
   color: grey;
@@ -25,4 +25,14 @@
 
 .button:hover {
   background: #e9e9e9;
+}
+
+@media screen and (max-width: 500px) {
+  .button {
+    font-size: calc(5px + 2vw);
+  }
+
+  .input {
+    font-size: calc(14px + 1vw);
+  }
 }
