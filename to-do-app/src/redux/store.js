@@ -15,7 +15,9 @@ const logger = createLogger();
 // TODO
 const filterMiddleware = storage.createMiddleware(engine, [], eventFilters);
 
-const enhancer = compose(applyMiddleware(logger, appMiddleware));
+const enhancer = compose(
+  applyMiddleware(logger, filterMiddleware, appMiddleware)
+);
 
 const rootReducer = combineReducers({
   appState: reducer
