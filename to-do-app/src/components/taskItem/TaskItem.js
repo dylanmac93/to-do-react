@@ -22,6 +22,11 @@ export default class TaskItem extends React.PureComponent {
     document.removeEventListener("click", this.handleClickOutside, true);
   };
 
+  removeTask = () => {
+    const { deleteTask, index } = this.props;
+    deleteTask(index);
+  };
+
   markTaskAsDone = () => {
     const { markAsDone, index } = this.props;
     markAsDone(index);
@@ -56,6 +61,12 @@ export default class TaskItem extends React.PureComponent {
     }
   };
 
+  onKeyPress = event => {
+    if (event.key === "Enter") {
+      this.updateTask();
+    }
+  };
+
   render() {
     const {
       task: { text, done }
@@ -71,6 +82,7 @@ export default class TaskItem extends React.PureComponent {
             autoFocus
             value={inputValue}
             onChange={this.updateText}
+            onKeyPress={this.onKeyPress}
           />
           <span className="task-item-button" onClick={this.updateTask}>
             <TaskItemButton
@@ -91,6 +103,15 @@ export default class TaskItem extends React.PureComponent {
         className="TaskItem"
         style={done ? { background: "cadetblue" } : null}
       >
+        <span className="task-item-button" onClick={this.removeTask}>
+          <TaskItemButton
+            text={"X"}
+            setFontSize={20}
+            textColor={"#de3131"}
+            onClickButton={this.editTask}
+            justifyText={"center"}
+          />
+        </span>
         <span className="task-text-div" onClick={this.setTaskActive}>
           <div className="task-text" style={done ? { color: "white" } : null}>
             {text}

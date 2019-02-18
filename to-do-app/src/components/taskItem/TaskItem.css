@@ -46,7 +46,6 @@
   overflow: hidden;
   font-size: calc(10px + 1vmin);
   color: grey;
-  padding-left: 10px;
 }
 .task-item-input {
   flex: 0.88;

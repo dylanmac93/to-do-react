@@ -2,18 +2,17 @@ import React from "react";
 import "./ToDoList.css";
 import TaskItem from "../taskItem/TaskItem";
 
-const ToDoList = ({ tasks, deleteTask, markAsDone, editTask }) => {
-  const removeTask = index => {
-    deleteTask(index);
-  };
-
+const ToDoList = ({
+  tasks,
+  deleteTask,
+  markAsDone,
+  editTask,
+  clearAllTasks
+}) => {
   const renderTaskItems = () => {
     if (tasks && tasks.length > 0) {
       return tasks.map((task, index) => (
         <div className="task-item-div" key={index}>
-          <span className="delete-button" onClick={() => removeTask(index)}>
-            x
-          </span>
           <TaskItem
             task={task}
             deleteTask={deleteTask}
@@ -25,7 +24,16 @@ const ToDoList = ({ tasks, deleteTask, markAsDone, editTask }) => {
       ));
     }
   };
-  return <div className="ToDoList">{renderTaskItems()}</div>;
+  return (
+    <div className="ToDoList">
+      {renderTaskItems()}
+      {tasks && tasks.length > 1 ? (
+        <div className="clear-list-div" onClick={clearAllTasks}>
+          Clear List
+        </div>
+      ) : null}
+    </div>
+  );
 };
 
 export default ToDoList;

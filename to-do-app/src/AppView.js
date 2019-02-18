@@ -18,7 +18,7 @@ class AppView extends Component {
     return (
       <div>
         <div className="header-div">
-          <Header clearAllTasks={clearAllTasks} tasks={tasks} />
+          <Header tasks={tasks} />
         </div>
         <div className="App">
           <div className="app-container">
@@ -31,6 +31,7 @@ class AppView extends Component {
                 deleteTask={deleteTask}
                 markAsDone={markAsDone}
                 editTask={editTask}
+                clearAllTasks={clearAllTasks}
               />
             </div>
           </div>

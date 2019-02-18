@@ -31,6 +31,12 @@ export default class TaskTextInput extends React.PureComponent {
     this.setState({ text: value });
   };
 
+  onKeyPress = event => {
+    if (event.key === "Enter") {
+      this.createTask();
+    }
+  };
+
   render() {
     const { text } = this.state;
     return (
@@ -40,6 +46,7 @@ export default class TaskTextInput extends React.PureComponent {
           placeholder="Add a task..."
           className="input"
           onChange={this.updateText}
+          onKeyPress={this.onKeyPress}
           value={text}
         />
         <button className="button" onClick={this.createTask}>
