@@ -7,6 +7,13 @@
   cursor: pointer;
 }
 
+.active-swap-button {
+  background: cadetblue;
+  color: white;
+  padding: 5;
+  border-radius: 3px;
+}
+
 @media screen and (max-width: 500px) {
   .SwapTaskButton {
     font-size: calc(16px + 1vw);

@@ -37,6 +37,7 @@ export default class ToDoList extends React.PureComponent {
       typeof this.firstTaskToSwap === "number" &&
       typeof this.secondTaskToSwap === "number"
     ) {
+      // swap tasks
       swapTasks([this.firstTaskToSwap, this.secondTaskToSwap]);
       this.resetTasksToSwap();
     }
@@ -54,7 +55,7 @@ export default class ToDoList extends React.PureComponent {
 
     if (tasks && tasks.length > 0) {
       return tasks.map((task, index) => (
-        <div className="task-row">
+        <div className="task-row" key={index}>
           {tasks && tasks.length > 1 ? (
             <div className="task-swap-icon">
               <SwapTaskButton
@@ -65,7 +66,7 @@ export default class ToDoList extends React.PureComponent {
               />
             </div>
           ) : null}
-          <div className="task-item-div" key={index}>
+          <div className="task-item-div">
             <TaskItem
               task={task}
               deleteTask={deleteTask}

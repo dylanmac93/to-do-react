@@ -11,7 +11,7 @@ const appMiddleware = ({ dispatch, getState }) => next => action => {
     case ADD_TASK: {
       const { text } = action.payload;
       const task = {
-        text,
+        text: text.trim(),
         done: false
       };
       const { tasks } = getState().appState;
@@ -49,7 +49,7 @@ const appMiddleware = ({ dispatch, getState }) => next => action => {
 
       const tasksArr = tasks.map((task, i) => {
         if (i === index) {
-          return { ...task, text: text };
+          return { ...task, text: text.trim() };
         }
         return task;
       });

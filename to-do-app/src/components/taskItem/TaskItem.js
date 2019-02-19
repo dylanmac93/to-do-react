@@ -33,7 +33,8 @@ export default class TaskItem extends React.PureComponent {
   };
 
   setTaskActive = () => {
-    this.setState({ active: true });
+    const { text } = this.props.task;
+    this.setState({ active: true, inputValue: text });
   };
 
   setTaskInactive = () => {

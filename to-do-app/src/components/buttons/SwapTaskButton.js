@@ -33,16 +33,7 @@ export default class SwapTaskButton extends React.PureComponent {
       >
         <div
           id="SwapTaskButton"
-          style={
-            active
-              ? {
-                  background: "cadetblue",
-                  color: "white",
-                  padding: "5",
-                  borderRadius: "3px"
-                }
-              : null
-          }
+          className={active ? "active-swap-button" : null}
         >
           ↓↑
         </div>
